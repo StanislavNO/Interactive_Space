@@ -9,6 +9,7 @@ namespace Assets._source._codeBase.Infrastructure.Installers
     internal class SceneInstaller : MonoInstaller
     {
         [SerializeField] private StopScrollPoint _stopScrollPoint;
+        [SerializeField] private AudioController _audioController;
 
         public override void InstallBindings()
         {
@@ -26,6 +27,7 @@ namespace Assets._source._codeBase.Infrastructure.Installers
         {
             Container.BindInterfacesTo<CameraScrollController>().AsSingle();
             Container.BindInterfacesTo<PlayerInputController>().AsSingle().NonLazy();
+            Container.BindInstance(_audioController).AsSingle();
         }
 
         private void BindStopScrollPoints()
